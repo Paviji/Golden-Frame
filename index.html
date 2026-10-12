@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golden Frame & Gifts</title>
+  <!-- Google Fonts for Luxury Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      width: 100vw;
+      background: radial-gradient(circle at 50% 20%, #151a24 0%, #080a0f 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 16px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient Luxury Gold Glow Effects */
+    body::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* =========================================================
+       REALISTIC MULTICOLOR CROSS-SCREEN FLYING BUTTERFLIES
+    ========================================================= */
+    .butterfly-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+      perspective: 1200px;
+    }
+
+    /* Standard natural size: 40px width x 34px height */
+    .butterfly {
+      position: absolute;
+      width: 40px;
+      height: 34px;
+      transform-style: preserve-3d;
+      will-change: transform, left, top;
+    }
+
+    /* Insect Body & Antennae */
+    .bf-body {
+      position: absolute;
+      left: 18px;
+      top: 4px;
+      width: 4px;
+      height: 26px;
+      background: #1c140a;
+      border-radius: 4px;
+      z-index: 3;
+      box-shadow: 0 0 3px rgba(0,0,0,0.8);
+    }
+
+    .bf-body::before, .bf-body::after {
+      content: '';
+      position: absolute;
+      top: -6px;
+      width: 1.5px;
+      height: 8px;
+      background: #332211;
+      border-radius: 1px;
+    }
+    .bf-body::before { left: -2px; transform: rotate(-30deg); }
+    .bf-body::after { right: -2px; transform: rotate(30deg); }
+
+    /* Wing 3D Structure */
+    .wing-left, .wing-right {
+      position: absolute;
+      top: 0;
+      width: 19px;
+      height: 32px;
+      border-radius: 65% 35% 55% 45% / 60% 40% 60% 40%;
+      box-shadow: inset 0 0 4px rgba(255,255,255,0.4), 0 2px 6px rgba(0,0,0,0.3);
+      border: 1px solid rgba(0,0,0,0.4);
+    }
+
+    .wing-left {
+      left: 0;
+      transform-origin: 100% 50%;
+      animation: flapLeft 0.18s infinite alternate ease-in-out;
+    }
+
+    .wing-right {
+      left: 21px;
+      border-radius: 35% 65% 45% 55% / 40% 60% 40% 60%;
+      transform-origin: 0% 50%;
+      animation: flapRight 0.18s infinite alternate ease-in-out;
+    }
+
+    @keyframes flapLeft {
+      0% { transform: rotateY(0deg) rotateZ(0deg); }
+      100% { transform: rotateY(-65deg) rotateZ(10deg); }
+    }
+
+    @keyframes flapRight {
+      0% { transform: rotateY(0deg) rotateZ(0deg); }
+      100% { transform: rotateY(65deg) rotateZ(-10deg); }
+    }
+
+    /* Distinct Species Colors & Patterns */
+    /* 1. Monarch Orange */
+    .monarch-orange .wing-left, .monarch-orange .wing-right {
+      background: radial-gradient(circle at 45% 40%, #ff851b 20%, #d35400 65%, #1a1a1a 95%);
+    }
+
+    /* 2. Royal Blue Morpho */
+    .royal-blue .wing-left, .royal-blue .wing-right {
+      background: radial-gradient(circle at 45% 40%, #00d2ff 25%, #0052d4 70%, #0f1c3f 95%);
+      filter: drop-shadow(0 0 6px rgba(0, 210, 255, 0.6));
+    }
+
+    /* 3. Emerald Forest Green */
+    .emerald-green .wing-left, .emerald-green .wing-right {
+      background: radial-gradient(circle at 45% 40%, #55efc4 20%, #00b894 65%, #133926 95%);
+    }
+
+    /* 4. Luxury Golden Monarch */
+    .golden-yellow .wing-left, .golden-yellow .wing-right {
+      background: radial-gradient(circle at 45% 40%, #ffeaa7 20%, #fdcb6e 65%, #503803 95%);
+      filter: drop-shadow(0 0 6px rgba(253, 203, 110, 0.7));
+    }
+
+    /* 5. Velvet Pink Magenta */
+    .velvet-pink .wing-left, .velvet-pink .wing-right {
+      background: radial-gradient(circle at 45% 40%, #ff76ac 25%, #d63031 70%, #2d0016 95%);
+    }
+
+    /* 6. Electric Violet Purple */
+    .electric-purple .wing-left, .electric-purple .wing-right {
+      background: radial-gradient(circle at 45% 40%, #e056fd 20%, #680b9c 70%, #1d033a 95%);
+      filter: drop-shadow(0 0 6px rgba(224, 86, 253, 0.6));
+    }
+
+    /* Realistic Screen-Crossing Flight Paths */
+    .bf1 {
+      left: -60px;
+      top: 15%;
+      animation: crossScreenLeftToRight1 20s infinite linear;
+    }
+    .bf2 {
+      left: 105vw;
+      top: 35%;
+      animation: crossScreenRightToLeft1 23s infinite linear -4s;
+    }
+    .bf3 {
+      left: -60px;
+      top: 65%;
+      animation: crossScreenLeftToRight2 21s infinite linear -8s;
+    }
+    .bf4 {
+      left: 105vw;
+      top: 75%;
+      animation: crossScreenRightToLeft2 25s infinite linear -12s;
+    }
+    .bf5 {
+      left: -60px;
+      top: 45%;
+      animation: crossScreenLeftToRight3 24s infinite linear -6s;
+    }
+    .bf6 {
+      left: 105vw;
+      top: 10%;
+      animation: crossScreenRightToLeft3 19s infinite linear -15s;
+    }
+
+    /* Natural Cross-Screen Flight Dynamics */
+    @keyframes crossScreenLeftToRight1 {
+      0% {
+        transform: translate(-10vw, 0) translateY(0px) rotate(35deg);
+      }
+      25% {
+        transform: translate(30vw, 40px) translateY(-35px) rotate(15deg);
+      }
+      50% {
+        transform: translate(60vw, -25px) translateY(30px) rotate(40deg);
+      }
+      75% {
+        transform: translate(90vw, 55px) translateY(-20px) rotate(20deg);
+      }
+      100% {
+        transform: translate(120vw, 15px) translateY(0px) rotate(35deg);
+      }
+    }
+
+    @keyframes crossScreenRightToLeft1 {
+      0% {
+        transform: translate(10vw, 0) translateY(0px) rotate(-145deg);
+      }
+      25% {
+        transform: translate(-30vw, -45px) translateY(30px) rotate(-165deg);
+      }
+      50% {
+        transform: translate(-60vw, 35px) translateY(-25px) rotate(-135deg);
+      }
+      75% {
+        transform: translate(-90vw, -30px) translateY(20px) rotate(-155deg);
+      }
+      100% {
+        transform: translate(-120vw, 10px) translateY(0px) rotate(-145deg);
+      }
+    }
+
+    @keyframes crossScreenLeftToRight2 {
+      0% {
+        transform: translate(-10vw, 0) translateY(0px) rotate(20deg);
+      }
+      30% {
+        transform: translate(35vw, -60px) translateY(25px) rotate(45deg);
+      }
+      60% {
+        transform: translate(75vw, 30px) translateY(-30px) rotate(10deg);
+      }
+      100% {
+        transform: translate(120vw, -40px) translateY(0px) rotate(25deg);
+      }
+    }
+
+    @keyframes crossScreenRightToLeft2 {
+      0% {
+        transform: translate(10vw, 0) translateY(0px) rotate(-130deg);
+      }
+      35% {
+        transform: translate(-45vw, 60px) translateY(-30px) rotate(-150deg);
+      }
+      70% {
+        transform: translate(-80vw, -40px) translateY(25px) rotate(-120deg);
+      }
+      100% {
+        transform: translate(-120vw, 20px) translateY(0px) rotate(-135deg);
+      }
+    }
+
+    @keyframes crossScreenLeftToRight3 {
+      0% {
+        transform: translate(-10vw, 0) translateY(0px) rotate(40deg);
+      }
+      40% {
+        transform: translate(50vw, 70px) translateY(-40px) rotate(15deg);
+      }
+      80% {
+        transform: translate(95vw, -30px) translateY(20px) rotate(35deg);
+      }
+      100% {
+        transform: translate(120vw, 20px) translateY(0px) rotate(30deg);
+      }
+    }
+
+    @keyframes crossScreenRightToLeft3 {
+      0% {
+        transform: translate(10vw, 0) translateY(0px) rotate(-160deg);
+      }
+      30% {
+        transform: translate(-35vw, -50px) translateY(20px) rotate(-135deg);
+      }
+      70% {
+        transform: translate(-75vw, 40px) translateY(-35px) rotate(-165deg);
+      }
+      100% {
+        transform: translate(-120vw, -20px) translateY(0px) rotate(-150deg);
+      }
+    }
+
+    /* Ambient Subtle Particle Dust */
+    .sparkle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: #fff5c0;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #ffd700;
+      animation: sparkleFloat 7s infinite linear;
+    }
+    .sp1 { top: 20%; left: 30%; animation-delay: 0s; }
+    .sp2 { top: 70%; left: 75%; animation-delay: 2s; }
+    .sp3 { top: 45%; left: 15%; animation-delay: 4s; }
+
+    @keyframes sparkleFloat {
+      0% { opacity: 0; transform: translateY(0) scale(0.5); }
+      50% { opacity: 1; transform: translateY(-40px) scale(1.2); }
+      100% { opacity: 0; transform: translateY(-80px) scale(0.5); }
+    }
+
+    /* Main Container Card */
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+      background: rgba(18, 22, 31, 0.84);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 28px;
+      padding: 38px 26px 32px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 
+                  0 0 25px rgba(212, 175, 55, 0.15);
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Fixed Permanent Logo */
+    .logo-wrapper {
+      position: relative;
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 20px;
+      border-radius: 24px;
+      padding: 3px;
+      background: linear-gradient(135deg, #f7d070, #cf9b33, #7a5410, #f7d070);
+      box-shadow: 0 0 25px rgba(218, 165, 32, 0.4);
+      overflow: hidden;
+    }
+
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 21px;
+      object-fit: cover;
+      display: block;
+      background: #080a0f;
+    }
+
+    /* Title & Subtitle */
+    .title {
+      font-family: 'Cinzel', serif;
+      font-size: 23px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, #fff2be 0%, #dfaa37 50%, #996c14 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: #9ea8b6;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      margin-bottom: 26px;
+    }
+
+    /* Action Links List */
+    .links-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+      border-radius: 16px;
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 500;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .link-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .link-btn:hover::before {
+      left: 100%;
+    }
+
+    .link-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
+    }
+
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .icon-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #fff;
+    }
+
+    .arrow-icon {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.4);
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .link-btn:hover .arrow-icon {
+      transform: translateX(4px);
+      color: #ffffff;
+    }
+
+    /* Button Colors */
+    .btn-whatsapp {
+      background: linear-gradient(135deg, rgba(37, 211, 102, 0.18), rgba(18, 140, 126, 0.25));
+      border-color: rgba(37, 211, 102, 0.35);
+    }
+    .btn-whatsapp .icon-box {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-website {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.16), rgba(160, 120, 20, 0.22));
+      border-color: rgba(212, 175, 55, 0.4);
+    }
+    .btn-website .icon-box {
+      background: linear-gradient(135deg, #f3cd67, #b8860b);
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+    }
+
+    .btn-google {
+      background: linear-gradient(135deg, rgba(66, 133, 244, 0.18), rgba(234, 67, 53, 0.18));
+      border-color: rgba(234, 67, 53, 0.35);
+    }
+    .btn-google .icon-box {
+      background: linear-gradient(135deg, #EA4335, #4285F4);
+      box-shadow: 0 4px 14px rgba(234, 67, 53, 0.35);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 26px;
+      font-size: 11px;
+      color: #6a7482;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Natural Cross-Screen Multicolor Butterflies -->
+  <div class="butterfly-container">
+    <!-- 1. Monarch Orange Butterfly -->
+    <div class="butterfly monarch-orange bf1">
+      <div class="wing-left"></div>
+      <div class="bf-body"></div>
+      <div class="wing-right"></div>
+    </div>
+
+    <!-- 2. Royal Blue Morpho Butterfly -->
+    <div class="butterfly royal-blue bf2">
+      <div class="wing-left"></div>
+      <div class="bf-body"></div>
+      <div class="wing-right"></div>
+    </div>
+
+    <!-- 3. Emerald Forest Green Butterfly -->
+    <div class="butterfly emerald-green bf3">
+      <div class="wing-left"></div>
+      <div class="bf-body"></div>
+      <div class="wing-right"></div>
+    </div>
+
+    <!-- 4. Luxury Golden Monarch Butterfly -->
+    <div class="butterfly golden-yellow bf4">
+      <div class="wing-left"></div>
+      <div class="bf-body"></div>
+      <div class="wing-right"></div>
+    </div>
+
+    <!-- 5. Velvet Pink Magenta Butterfly -->
+    <div class="butterfly velvet-pink bf5">
+      <div class="wing-left"></div>
+      <div class="bf-body"></div>
+      <div class="wing-right"></div>
+    </div>
+
+    <!-- 6. Electric Violet Purple Butterfly -->
+    <div class="butterfly electric-purple bf6">
+      <div class="wing-left"></div>
+      <div class="bf-body"></div>
+      <div class="wing-right"></div>
+    </div>
+
+    <!-- Gentle Sparkles -->
+    <div class="sparkle sp1"></div>
+    <div class="sparkle sp2"></div>
+    <div class="sparkle sp3"></div>
+  </div>
+
+  <div class="container">
+    <!-- Fixed Permanent Logo -->
+    <div class="logo-wrapper">
+      <img id="displayLogo" src="logo.png" alt="Company Logo" class="logo-img" onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=300&auto=format&fit=crop&q=80'">
+    </div>
+
+    <!-- Company Name -->
+    <h1 class="title">Golden Frame & Gifts</h1>
+    <p class="tagline">Personalized Frames & Luxury Gifts</p>
+
+    <!-- Action Buttons -->
+    <div class="links-list">
+      <!-- WhatsApp Link -->
+      <a href="https://wa.me/919790071662" target="_blank" class="link-btn btn-whatsapp">
+        <div class="link-left">
+          <div class="icon-box">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <span>Chat on WhatsApp</span>
+        </div>
+        <i class="fa-solid fa-chevron-right arrow-icon"></i>
+      </a>
+
+      <!-- Website Link -->
+      <a href="https://www.tn95.in/?srsltid=AU7gw4XwdOQYjDw1OB0BkQPNh1JnpTYhHYrp08CFHnoik7EYOA3_xdW6" target="_blank" class="link-btn btn-website">
+        <div class="link-left">
+          <div class="icon-box">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <span>Visit Our Website</span>
+        </div>
+        <i class="fa-solid fa-chevron-right arrow-icon"></i>
+      </a>
+
+      <!-- Google Review Link -->
+      <a href="https://share.google/bavDCSVBysFgOZRfB" target="_blank" class="link-btn btn-google">
+        <div class="link-left">
+          <div class="icon-box">
+            <i class="fa-brands fa-google"></i>
+          </div>
+          <span>Google Business / Reviews</span>
+        </div>
+        <i class="fa-solid fa-chevron-right arrow-icon"></i>
+      </a>
+    </div>
+
+    <div class="footer">
+      Connect with us directly
+    </div>
+  </div>
+
+</body>
+</html>
